@@ -26,6 +26,8 @@ engine = create_engine(f'postgresql+psycopg2://{username}:{password}@{host}:{por
 option = st.selectbox(
     "How would you like to access the data? : Through - ",
     ("Vehicle Number", "Gender", "Country"),
+    index=None,
+    placeholder="Select a valid option...",
 )
 
 if option == "Vehicle Number":
@@ -37,8 +39,10 @@ if option == "Vehicle Number":
 elif option == "Gender":
     st.write("You selected:", option)
     gender = st.selectbox(
-    "How would you like to access the data? : Through - ",
+    "Choose the gender of the driver: ",
     ("Male", "Female", "Other"),
+    index=None,
+    placeholder="Select a valid entry...",
     )
     if gender == "Male":
         Qurey4="SELECT * FROM traffic_stops WHERE driver_gender ='M'"
